@@ -1,0 +1,26 @@
+{
+  "version": "0.1.0",
+  "release_date": "2026-08-07",
+  "download_url": "https://github.com/plagrizd/plagTalk/releases/latest",
+  "changelog": [
+    {
+      "version": "0.1.0",
+      "date": "2026-08-07",
+      "github_tag": "v0.1.0",
+      "github_title": "plagTalk v0.1.0 — Initial Release",
+      "asset_url": "https://github.com/plagrizd/plagTalk/releases/download/v0.1.0/plagTalk.exe",
+      "notes": [
+        "Initial release of plagTalk.",
+        "Windows SAPI, Google Cloud TTS, and ElevenLabs support.",
+        "Twitch, TikTok, YouTube, and Kick platform integrations.",
+        "Per-event voice templates with token system.",
+        "Voice per username and per platform overrides.",
+        "User blocklist and whitelist for chat TTS.",
+        "TTS command mode (!tts prefix).",
+        "Voice randomization and pool system.",
+        "Platform visibility toggles.",
+        "Events accordion sidebar with per-platform event pages."
+      ]
+    }
+  ]
+}

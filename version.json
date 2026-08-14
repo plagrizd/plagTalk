@@ -1,8 +1,27 @@
 {
-  "version": "0.1.0",
-  "release_date": "2026-08-07",
+  "version": "0.2.0",
+  "release_date": "2026-08-12",
   "download_url": "https://github.com/plagrizd/plagTalk/releases/latest",
   "changelog": [
+    {
+      "version": "0.2.0",
+      "date": "2026-08-12",
+      "github_tag": "v0.2.0",
+      "github_title": "plagTalk v0.2.0 — Voice Routing & Platform Overhaul",
+      "asset_url": "https://github.com/plagrizd/plagTalk/releases/download/v0.2.0/plagTalk.exe",
+      "notes": [
+        "ElevenLabs TTS engine support via user API key.",
+        "Audio output device picker — route TTS to any output including VB-Audio Virtual Cable for OBS capture.",
+        "Channel Points (Twitch) redemptions with per-title voice rules dialog.",
+        "Per-event voice override on every event row.",
+        "Per-platform independent chat settings (Twitch, TikTok, YouTube, Kick each have separate toggles and templates).",
+        "Voice per Platform redesign with colored platform labels and per-row randomize / reset buttons.",
+        "Auto-save across all settings pages with animated Saved confirmation — Save buttons removed.",
+        "Bot command filter (ignore messages starting with ! by default).",
+        "User whitelist for chat TTS — restrict chat reading to listed usernames.",
+        "WheelBlocker fix — scroll wheel no longer accidentally changes spinboxes or combo boxes."
+      ]
+    },
     {
       "version": "0.1.0",
       "date": "2026-08-07",

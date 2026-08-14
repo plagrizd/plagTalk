@@ -7,7 +7,7 @@
       "version": "0.2.0",
       "date": "2026-08-12",
       "github_tag": "v0.2.0",
-      "github_title": "plagTalk v0.2.0 — Voice Routing & Platform Overhaul",
+      "github_title": "plagTalk v0.2.0 - Voice Routing & Platform Overhaul",
       "asset_url": "https://github.com/plagrizd/plagTalk/releases/download/v0.2.0/plagTalk.exe",
       "notes": [
         "ElevenLabs TTS engine support via user API key.",

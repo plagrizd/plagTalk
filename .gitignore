@@ -1,0 +1,26 @@
+# Source code - not distributed via GitHub
+*.py
+*.spec
+
+# Build scripts
+build.bat
+release.bat
+
+# Build artifacts
+build/
+dist/
+__pycache__/
+
+# Runtime / temp
+*.json.bak
+_v.tmp
+_notes.tmp
+.last_release.json
+
+# IDE
+.vscode/
+.idea/
+
+# Node (Electron experiment)
+node_modules/
+package-lock.json

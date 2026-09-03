@@ -117,8 +117,11 @@ plagTalk uses Windows built-in SAPI5 voices right out of the box. Open it, make 
 ### 🎙️ Audio Output Routing
 Route TTS to any output device on your system — including virtual audio cables like VB-Audio Virtual Cable. This lets OBS or your streaming software capture TTS audio as a separate source, completely isolated from your game audio and headset. No more everything doubling on stream.
 
+### 🔍 Voice Picker Filters
+The voice selection dialog now has engine, language, and gender filters so you can quickly find the voice you want from a list that might include 100+ Google and ElevenLabs voices. Filter by SAPI / Google / ElevenLabs, narrow to a specific language (e.g. en-US, ja-JP), and toggle Female / Male / Neutral. ElevenLabs voices display gender and accent (e.g. Rachel — Female (American)). Filters combine — pick ElevenLabs + Female to see only female AI voices.
+
 ### 📢 Channel Points Voice Rules (Twitch)
-Assign specific voices to specific Channel Points redemptions by title. When a viewer redeems "Robot Mode", you can make TTS switch to a robotic voice for that message. Each rule is a keyword match — configurable per title, with enable/disable toggle per rule.
+Assign specific voices to specific Channel Points redemptions by title, and filter which redemptions are spoken at all. When rules exist, only redemptions whose title matches at least one rule keyword are spoken — everything else is silently skipped. This lets you whitelist specific rewards (e.g. "Say It Out Loud") and ignore all other channel point redemptions.
 
 ### 🔊 Per-Event Voice Override
 Every event type has its own voice button — assign a specific TTS voice to follows, raids, subs, or any event independently of the global default.
@@ -145,7 +148,7 @@ Events are queued and played one at a time. No overlapping audio, no chaos durin
 - **Per-platform voice** — a different voice for Twitch vs. TikTok vs. YouTube vs. Kick
 - **Per-event voice** — a specific voice just for raids, or just for subs
 - **Per-username voice** — specific viewers always get read in the same voice
-- **Channel Points rules** — per-redemption-title voice matching
+- **Channel Points rules** — keyword filter that controls which redemptions are spoken, with optional per-rule voice override
 All levels stack in priority order: per-user > per-event > redemption rule > per-platform > default.
 
 ### 💬 TTS Command Mode
@@ -182,7 +185,7 @@ Live dashboard shows the connection status, current speech queue, and a rolling 
 | TTS Engine | Windows SAPI (free, no setup), Google Cloud TTS, or ElevenLabs |
 | Google API Key | Paste your key — a Test button validates it immediately |
 | ElevenLabs API Key | Paste your key — a Test button validates it immediately |
-| Default Voice | Choose from all voices available (SAPI, Google, and ElevenLabs if configured) |
+| Default Voice | Choose from all voices available — engine / language / gender filters make it easy to find a specific voice |
 | Speed | Reading speed in words per minute |
 | Volume | TTS volume, independent of system audio |
 | Audio Output | Send TTS to a specific output device (e.g. VB-Audio CABLE Input for OBS capture) |
@@ -195,7 +198,7 @@ Every supported event type has:
 - **Voice** — optional per-event voice override (🔊 button)
 - **Message template** — fully editable, with token reference
 - **Reset to default** — one click restores the original template
-- **Channel Points rules** — per-title voice matching (Twitch redemptions only)
+- **Channel Points rules** — keyword filter that controls which redemptions are spoken, with optional per-rule voice override (Twitch only)
 
 ### Advanced Tab
 
@@ -270,16 +273,25 @@ plagTalk stays in your system tray. Close the window and it keeps running. Right
 
 ## Audio Output & Streaming
 
-By default plagTalk plays through your Windows default output device. If you want your stream to hear TTS separately from your game audio, use a virtual audio cable:
+By default plagTalk plays through your Windows default output device. If you want OBS to capture TTS audio separately from your game audio, you have two options:
 
-**Recommended: [VB-Audio Virtual Cable](https://vb-audio.com/Cable/)** (free)
+### Option A: OBS Application Audio Capture (no extra software)
+OBS can capture audio from a specific application's process directly via WASAPI:
 
-1. Install VB-Audio Virtual Cable
-2. In plagTalk → **Settings → Audio Output**, select **CABLE Input (VB-Audio Virtual Cable)**
-3. In OBS/Streamlabs/Meld, add an **Audio Input Capture** source and select **CABLE Output (VB-Audio Virtual Cable)**
-4. Set that source to **Monitor and Output** so you also hear it through your headset
+1. In OBS, add an **Application Audio Capture** source
+2. Set the target process to **plagTalk.exe** (or **python.exe** if running from source)
+3. Set that source to **Monitor and Output** so you also hear it in your headset
+4. This captures only plagTalk's audio — game audio and other apps are excluded automatically
 
-This completely isolates TTS audio from your game and other sources — no doubling, no bleeding.
+### Option B: VB-Audio Virtual Cable
+Route TTS to a virtual audio device for maximum routing flexibility:
+
+1. Install [VB-Audio Virtual Cable](https://vb-audio.com/Cable/) (free)
+2. In plagTalk → **Settings → Audio Output**, click **↻** to refresh the device list and select **CABLE Input (VB-Audio Virtual Cable)**
+3. In OBS, add an **Audio Input Capture** source set to **CABLE Output (VB-Audio Virtual Cable)**
+4. Set that source to **Monitor and Output** so you also hear it in your headset
+
+> **Tip:** The **↻** refresh button in the Audio Output row picks up newly installed devices without restarting plagTalk.
 
 ---
 
@@ -298,7 +310,7 @@ Uses Google's Text-to-Speech API to generate high-quality speech including WaveN
 **Cons:** Requires a Google Cloud project setup (~5 minutes), internet required
 
 ### ElevenLabs
-Uses ElevenLabs' AI voice synthesis API for ultra-realistic voices. Requires your own ElevenLabs API key.
+Uses ElevenLabs' AI voice synthesis API for ultra-realistic voices. Requires your own ElevenLabs API key. The voice picker shows gender and accent for each voice (e.g. Rachel — Female (American)) and lets you filter by gender to find the right one from a large catalogue.
 
 **Pros:** Best voice quality available, highly customisable voice characters  
 **Cons:** Requires an ElevenLabs account, paid tiers for higher usage, internet required

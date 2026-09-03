@@ -1,8 +1,23 @@
 {
-  "version": "0.2.0",
-  "release_date": "2026-08-12",
+  "version": "0.2.1",
+  "release_date": "2026-08-15",
   "download_url": "https://github.com/plagrizd/plagTalk/releases/latest",
   "changelog": [
+    {
+      "version": "0.2.1",
+      "date": "2026-08-15",
+      "github_tag": "v0.2.1",
+      "github_title": "plagTalk v0.2.1 - Voice Filtering & Channel Points Fix",
+      "asset_url": "https://github.com/plagrizd/plagTalk/releases/download/v0.2.1/plagTalk.exe",
+      "notes": [
+        "Voice picker now has engine, language, and gender filters — quickly find a specific ElevenLabs or Google voice from a large list.",
+        "ElevenLabs voices now display gender and accent in the picker (e.g. Rachel — Female (American)).",
+        "Channel Points redemption rules now correctly block non-matching titles — only whitelisted redemptions speak.",
+        "Audio output device list refreshes without restarting the app after installing sounddevice.",
+        "Refresh button character fixed (was rendering as a colon on some systems).",
+        "Emoji and symbol buttons (dice, reset) now render correctly on all Windows configurations."
+      ]
+    },
     {
       "version": "0.2.0",
       "date": "2026-08-12",
